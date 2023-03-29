@@ -48,14 +48,14 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Hello!",
+                    "Салем!",
                     style: TextStyle(
                         color: darker,
                         fontSize: 14,
                         fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    "User",
+                    "Мерей",
                     style: TextStyle(
                         color: Colors.black87,
                         fontSize: 17,
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                     child: CustomTextBox(
-                  hint: "Search",
+                  hint: "Іздеу",
                   prefix: Icon(Icons.search, color: Colors.grey),
                 )),
                 SizedBox(
@@ -135,11 +135,11 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Popular",
+                  "Танымал",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  "See all",
+                  "Барлыған көру",
                   style: TextStyle(fontSize: 14, color: darker),
                 ),
               ],
@@ -158,11 +158,11 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Recommended",
+                  "Ұсыныстар",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  "See all",
+                  "Барлыған көру",
                   style: TextStyle(fontSize: 14, color: darker),
                 ),
               ],
@@ -181,11 +181,11 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Recent",
+                  "Соңғылар",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  "See all",
+                  "Барлыған көру",
                   style: TextStyle(fontSize: 14, color: darker),
                 ),
               ],

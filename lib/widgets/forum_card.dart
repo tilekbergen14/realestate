@@ -29,7 +29,7 @@ class ForumCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
                         Text(
-                          "Toni",
+                          "Пайдаланушы",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,
@@ -37,7 +37,7 @@ class ForumCard extends StatelessWidget {
                         ),
                         Padding(padding: EdgeInsets.all(3)),
                         Text(
-                          "Hello how are you brooo",
+                          "Соңғы жазылған текст",
                           style: TextStyle(
                             fontSize: 16,
                           ),
