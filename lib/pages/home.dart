@@ -10,6 +10,8 @@ import 'package:realestate/widgets/property_item.dart';
 import 'package:realestate/widgets/recent_item.dart';
 import 'package:realestate/widgets/recommend_item.dart';
 
+import 'createpost.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -61,14 +63,27 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              CustomImage(
-                profile,
-                width: 35,
-                height: 35,
-                trBackground: true,
-                borderColor: primary,
-                radius: 10,
-              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CreatePost(),
+                    ),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Color(0xFF2ecc71),
+                  ),
+                  child: Icon(
+                    Icons.add_outlined,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                ),
+              )
             ],
           ),
         ],

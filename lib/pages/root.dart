@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:realestate/pages/explore.dart';
+import 'package:realestate/pages/settings.dart';
 import 'package:realestate/theme/color.dart';
 import 'package:realestate/widgets/bottombar_item.dart';
 
@@ -43,7 +44,7 @@ class _RootAppState extends State<RootApp> {
     {
       "icon": Icons.settings_outlined,
       "active_icon": Icons.settings_rounded,
-      "page": HomePage(),
+      "page": SettingsPage(),
       "title": ""
     },
   ];
