@@ -4,15 +4,20 @@ import 'package:realestate/theme/color.dart';
 import 'custom_image.dart';
 
 class RecommendItem extends StatelessWidget {
-  RecommendItem({Key? key, required this.data}) : super(key: key);
+  final double height;
+  final double width;
+
+  RecommendItem(
+      {Key? key, required this.data, this.height = 160, this.width = 220})
+      : super(key: key);
   final data;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 220,
-        height: 130,
-        margin: EdgeInsets.only(right: 15),
+        width: width,
+        height: height,
+        margin: EdgeInsets.all(15),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           boxShadow: [

@@ -35,12 +35,12 @@ class _RootAppState extends State<RootApp> {
       "page": HomePage(),
       "title": ""
     },
-    {
-      "icon": Icons.forum_outlined,
-      "active_icon": Icons.forum_rounded,
-      "page": ForumPage(),
-      "title": ""
-    },
+    // {
+    //   "icon": Icons.forum_outlined,
+    //   "active_icon": Icons.forum_rounded,
+    //   "page": ForumPage(),
+    //   "title": ""
+    // },
     {
       "icon": Icons.settings_outlined,
       "active_icon": Icons.settings_rounded,
@@ -50,6 +50,11 @@ class _RootAppState extends State<RootApp> {
   ];
 
   @override
+  void initState() {
+    // print("init______________--");
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appBgColor,

@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:realestate/pages/post/singlepost.dart';
 import 'package:realestate/theme/color.dart';
 import 'package:realestate/utils/data.dart';
 import 'package:realestate/widgets/category_item.dart';
@@ -10,7 +12,7 @@ import 'package:realestate/widgets/property_item.dart';
 import 'package:realestate/widgets/recent_item.dart';
 import 'package:realestate/widgets/recommend_item.dart';
 
-import 'createpost.dart';
+import 'post/createpost.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           floating: true,
           title: getHeader(),
         ),
-        SliverToBoxAdapter(child: getBody())
+        SliverToBoxAdapter(child: getBody()),
       ],
     );
   }
@@ -224,15 +226,49 @@ class _HomePageState extends State<HomePage> {
   }
 
   listPopulars() {
-    return CarouselSlider(
-        options: CarouselOptions(
-          height: 240,
-          enlargeCenterPage: true,
-          disableCenter: true,
-          viewportFraction: .8,
-        ),
-        items: List.generate(
-            populars.length, (index) => PropertyItem(data: populars[index])));
+    final Stream<QuerySnapshot> postsStream =
+        FirebaseFirestore.instance.collection('posts').snapshots();
+    CollectionReference posts = FirebaseFirestore.instance.collection('posts');
+    return StreamBuilder<QuerySnapshot>(
+      stream: postsStream,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+        return CarouselSlider(
+          options: CarouselOptions(
+            height: 240,
+            enlargeCenterPage: true,
+            disableCenter: true,
+            viewportFraction: .8,
+          ),
+          items: snapshot.data!.docs.map((DocumentSnapshot document) {
+            Map<String, dynamic> data =
+                document.data()! as Map<String, dynamic>;
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SinglePost(id: document.id)),
+                );
+              },
+              child: PropertyItem(data: {
+                "image": data["picture"],
+                "name": data["title"],
+                "price": "${data["price"]}",
+                "location": data["location"],
+                "is_favorited": true,
+              }),
+            );
+          }).toList(),
+        );
+      },
+    );
   }
 
   listRecommended() {
