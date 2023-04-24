@@ -70,8 +70,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   borderRadius: BorderRadius.circular(16),
                   child: Container(
                     color: Colors.black,
-                    child: Image.asset(
-                      "assets/images/villa.png",
+                    child: Image.network(
+                      "assets/images/profile.jpg",
                       height: 80,
                       width: 80,
                     ),
@@ -107,27 +107,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ),
                 Settings_Card_Item(
-                  title: "Notifications",
-                  icon: Icon(Icons.notifications),
-                ),
-                Settings_Card_Item(
-                  title: "Change Password",
-                  icon: Icon(Icons.lock_outline),
-                ),
-              ],
-            ),
-          ),
-          Card(
-            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 0),
-            elevation: 10,
-            child: Column(
-              children: const [
-                Settings_Card_Item(
-                  title: "Profile",
-                  icon: Icon(Icons.settings),
-                ),
-                Settings_Card_Item(
-                  title: "Notifications",
+                  title: "Create home",
                   icon: Icon(Icons.notifications),
                 ),
                 Settings_Card_Item(
