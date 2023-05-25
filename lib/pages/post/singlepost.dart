@@ -97,7 +97,7 @@ class SinglePost extends StatelessWidget {
                               Spacer(),
                               Container(
                                 child: Text(
-                                  "${data["price"]}\$",
+                                  "${data["price"]}\T",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
@@ -146,33 +146,6 @@ class SinglePost extends StatelessWidget {
                           //     ]),
                           //   ),
                           // )
-                          Container(
-                            margin: EdgeInsets.symmetric(vertical: 24),
-                            child: RatingBar(
-                              initialRating: 0,
-                              minRating: 0,
-                              maxRating: 5,
-                              allowHalfRating: true,
-                              itemSize: 30.0,
-                              ratingWidget: RatingWidget(
-                                full: const Icon(Icons.star,
-                                    color: Colors.blueAccent),
-                                half: const Icon(Icons.star_half,
-                                    color: Colors.blueAccent),
-                                empty: const Icon(Icons.star_border,
-                                    color: Colors.blueAccent),
-                              ),
-                              onRatingUpdate: (rating) {
-                                // Rating is updated
-                                print('rating update to: $rating');
-                              },
-                            ),
-                          ),
-                          Text(
-                            "4.8",
-                            style: TextStyle(
-                                fontSize: 32, fontWeight: FontWeight.bold),
-                          ),
                         ]),
                   ),
                 ),

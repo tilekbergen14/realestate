@@ -158,9 +158,13 @@ class _ExplorePageState extends State<ExplorePage> {
               Map<String, dynamic> data =
                   document.data()! as Map<String, dynamic>;
               if (data["title"]
-                  .toString()
-                  .toLowerCase()
-                  .startsWith(searchkey.text.toLowerCase())) {
+                      .toString()
+                      .toLowerCase()
+                      .contains(searchkey.text.toLowerCase()) ||
+                  data["location"]
+                      .toString()
+                      .toLowerCase()
+                      .contains(searchkey.text.toLowerCase())) {
                 return InkWell(
                   onTap: () {
                     Navigator.push(

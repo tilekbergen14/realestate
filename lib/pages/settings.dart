@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:realestate/pages/auth.dart';
 import 'package:realestate/pages/profile.dart';
+import 'package:realestate/pages/ratehouse.dart';
 import 'package:realestate/pages/root.dart';
 import 'package:realestate/widgets/forum_card.dart';
 
@@ -58,7 +59,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     );
                   }
                 },
-                child: user != null ? Text("Logout") : Text("Login"),
+                child: user != null ? Text("Шығу") : Text("Кіру"),
               )
             ],
           ),
@@ -70,7 +71,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   borderRadius: BorderRadius.circular(16),
                   child: Container(
                     color: Colors.black,
-                    child: Image.network(
+                    child: Image.asset(
                       "assets/images/profile.jpg",
                       height: 80,
                       width: 80,
@@ -102,33 +103,45 @@ class _SettingsPageState extends State<SettingsPage> {
                     );
                   },
                   child: Settings_Card_Item(
-                    title: "Profile",
+                    title: "Профил",
                     icon: Icon(Icons.person),
                   ),
                 ),
-                Settings_Card_Item(
-                  title: "Create home",
-                  icon: Icon(Icons.notifications),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RateHouse()),
+                    );
+                  },
+                  child: Settings_Card_Item(
+                    title: "Үйді бағалау",
+                    icon: Icon(Icons.house),
+                  ),
                 ),
-                Settings_Card_Item(
-                  title: "Change Password",
-                  icon: Icon(Icons.lock_outline),
-                ),
+                // Settings_Card_Item(
+                //   title: "Create home",
+                //   icon: Icon(Icons.notifications),
+                // ),
+                // Settings_Card_Item(
+                //   title: "Change Password",
+                //   icon: Icon(Icons.lock_outline),
+                // ),
               ],
             ),
           ),
-          Card(
-            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 0),
-            elevation: 2,
-            child: Column(
-              children: const [
-                Settings_Card_Item(
-                  title: "Profile",
-                  icon: Icon(Icons.settings),
-                ),
-              ],
-            ),
-          ),
+          // Card(
+          //   margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 0),
+          //   elevation: 2,
+          //   child: Column(
+          //     children: const [
+          //       Settings_Card_Item(
+          //         title: "Profile",
+          //         icon: Icon(Icons.settings),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );
